@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"fw-script dev",
-    "build":"fw-script build"
+    "dev": "fw-script dev",
+    "build": "fw-script build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ians-fw": "^1.2.2-dev-1"
+    "ians-fw": "latest"
   }
 }
