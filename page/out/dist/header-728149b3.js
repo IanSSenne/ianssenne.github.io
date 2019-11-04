@@ -1,0 +1,1 @@
+import{f as o,g as t}from"./index-0b7bcdd2.js";function e(){var o=t([".header-host{position:absolute;top:0px;left:0px;width:100vw;height:300vh;}"]);return e=function(){return o},o}o.css(e());export default function(){return o.dom("div",{className:"header-host"},o.dom("h1",{style:"font-size:calc(1px * var(--scroll-y));color:hsl(calc(var(--scroll-x) / 10), 100%, 50%);"},"Header"))}
