@@ -1,1 +1,0 @@
-import{f as t,g as e}from"./index-0b7bcdd2.js";function o(){var t=e([".header-host{position:absolute;top:0px;left:0px;width:100vw;height:100vh;}"]);return o=function(){return t},t}t.css(o());export default function(){return t.dom("div",{className:"header-host"},t.dom("h1",null,"Header"))}

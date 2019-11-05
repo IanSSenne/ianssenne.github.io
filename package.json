@@ -1,0 +1,29 @@
+{
+  "name": "ianssenne.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-site": "cd page && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IanSSenne/ianssenne.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IanSSenne/ianssenne.github.io/issues"
+  },
+  "homepage": "https://github.com/IanSSenne/ianssenne.github.io#readme",
+  "dependencies": {
+    "husky": "^3.0.9"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build-site"
+    }
+  }
+}
