@@ -5,5 +5,6 @@ const app = <div>
     <CssInject></CssInject>
     <Import target={import("./content")}></Import>
     <Import target={import("./header")}></Import>
+    <div></div>
 </div>;
 export const element = app.element.bind(app);
