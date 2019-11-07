@@ -12,6 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ians-fw": "latest"
+    "ians-fw": "^1.3.0-dev-5"
   }
 }

@@ -1,0 +1,1 @@
+import{f as n,g as t}from"./index-97cc811f.js";function r(){var n=t([".content-title-host{\n    content: minmax(var(--scroll-y,50vw));\n    transform:translate(100vw,0vh) translate(-50%,-50%);\n}\n"]);return r=function(){return n},n}n.css(r());export default function(){return n.dom("span",null)}
