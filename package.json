@@ -20,10 +20,5 @@
   "homepage": "https://github.com/IanSSenne/ianssenne.github.io#readme",
   "dependencies": {
     "husky": "^3.0.9"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run build-site"
-    }
   }
 }
