@@ -1,6 +1,8 @@
 import fw from "ians-fw";
-import { Import } from "./import";
+import * as fwcomp from "ians-fw";
 import CssInject from "./globalcssinject";
+import Content from "./content";
+import Header from "./header";
 fw.css`.app-root{
     overflow:hidden;
 }
@@ -9,8 +11,9 @@ body{
 }`
 const app = <div className="app-root">
     <CssInject></CssInject>
-    <Import target={import("./content")}></Import>
-    <Import target={import("./header")}></Import>
-    <div></div>
+    <Header></Header>
+    <Content></Content>
 </div>;
 export const element = app.element.bind(app);
+
+Object.defineProperty(window, "fw", { value: { fw, fwcomp } });
