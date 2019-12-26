@@ -1,4 +1,4 @@
-import fw from "ians-fw";
+import fw, { Ref } from "ians-fw";
 fw.css`
 .effect.hidden{
     opacity:0;
@@ -37,25 +37,29 @@ function elementInViewport(el, targets = { top: true, bottom: true, left: true, 
 export function FadeIn(props) {
     const id = generateId("FadeIn");
     const visible = fw.StatefulData("effect hidden");
-    const velem = <div id={id} className={visible}>
+    const ref = new Ref();
+    const velem = <div id={id} className={visible} ref={ref}>
         {props.children}
     </div>;
-    const element = velem.element();
-    const intervalId = setInterval(() => {
-        const el = document.getElementById(id);
-        if (el) {
-            if (el != element) {
-                clearInterval(intervalId);
-            } else {
-                if (elementInViewport(element, { top: true, left: true, right: true, bottom: true })) {
-                    visible.value = "effect fade-in";
+    ref.setRef(velem);
+    const effect = () => {
+        const intervalId = setInterval(() => {
+            const el = document.getElementById(id);
+            if (el) {
+                if (el != ref) {
                     clearInterval(intervalId);
+                } else {
+                    if (elementInViewport(ref, { top: true, left: true, right: true, bottom: true })) {
+                        visible.value = "effect fade-in";
+                        clearInterval(intervalId);
+                    }
                 }
+            } else {
+                clearInterval(intervalId);
             }
-        } else {
-            clearInterval(intervalId);
-        }
-    }, 100);
+        }, 100);
+    }
+    ref.watch(effect);
     return velem;
 }
 export default {

@@ -16,4 +16,4 @@ const app = <div className="app-root">
 </div>;
 export const element = app.element.bind(app);
 
-Object.defineProperty(window, "fw", { value: { fw, fwcomp } });
+Object.defineProperty(window, "fw", { value: { fw, fwcomp, app } });

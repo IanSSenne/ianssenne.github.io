@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+</head>
+
+<body>
+    <div id="appmount"></div>
+    <script>
+        const iframe = document.createElement("iframe");
+        const iframecontentblock = new Blob(
+            [
+                `<html><head><script>console.log("initial script execute");
+            onready=function(update){
+                return function ghostFunction(){
+                    console.log("ghost function");
+                    update("Hello from the ghost function");
+                }
+            }
+            <${"/"}script></head></html>`
+            ],
+            { type: "text/html" }
+        );
+        const iframesrc = URL.createObjectURL(iframecontentblock);
+        iframe.onload = () => {
+            URL.revokeObjectURL(iframesrc);
+            let ghostFunc = iframe.contentWindow.onready(
+                content => (window.document.body.innerHTML += content)
+            );
+            testGhostFunc = () => {
+                debugger;
+                ghostFunc();
+            };
+            iframe.remove();
+        };
+        iframe.src = iframesrc;
+        document.getElementById("appmount").appendChild(iframe);
+    </script>
+    <button onclick="testGhostFunc()">
+        run ghost func test (have debugger open)
+    </button>
+</body>
+
+</html>

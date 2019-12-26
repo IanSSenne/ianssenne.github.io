@@ -38,4 +38,5 @@ for (let i = 0; i < localStorage.length; i++) {
     }
 }
 window.localStorage.setItem(sesid.value, JSON.stringify(appstate));
+console.log(appstate);
 export default appstate;

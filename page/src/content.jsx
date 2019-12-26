@@ -1,6 +1,7 @@
 import fw from "ians-fw";
 import theme from "./theme";
-import FaceJpg from "./assets/placeholder-photo-of-self.jpg";
+// import FaceJpg from "./assets/IanSenne-face.jpg";
+const FaceJpg = { href: "about:blank" }
 import Effect from "./Effect";
 fw.css`.content-title-host{
     content: minmax(var(--scroll-y,50vw));
@@ -38,7 +39,7 @@ function AboutMe() {
                     <div className="section-segment pad-left-1em">
                         <h1>about me</h1>
                         Hello, my name is Ian Senne
-            </div>
+                    </div>
                 </div>
             </Effect.FadeIn>
         </section>
