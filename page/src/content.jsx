@@ -34,7 +34,7 @@ function AboutMe() {
             <Effect.FadeIn>
                 <div className="section-host">
                     <div className="section-segment">
-                        <img src={FaceJpg.href} className="about-me-img"></img>
+                        <img src={"https://images.pexels.com/photos/3303614/pexels-photo-3303614.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"} className="about-me-img"></img>
                     </div>
                     <div className="section-segment pad-left-1em">
                         <h1>about me</h1>

@@ -41,15 +41,14 @@ export function FadeIn(props) {
     const velem = <div id={id} className={visible} ref={ref}>
         {props.children}
     </div>;
-    ref.setRef(velem);
     const effect = () => {
         const intervalId = setInterval(() => {
             const el = document.getElementById(id);
             if (el) {
-                if (el != ref) {
+                if (el != ref.dom) {
                     clearInterval(intervalId);
                 } else {
-                    if (elementInViewport(ref, { top: true, left: true, right: true, bottom: true })) {
+                    if (elementInViewport(ref.dom, { top: true, left: true, right: true, bottom: true })) {
                         visible.value = "effect fade-in";
                         clearInterval(intervalId);
                     }
