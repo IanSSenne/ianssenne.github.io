@@ -7,13 +7,14 @@ fw.css`
     transition:1s;
     opacity:1;
 }`;
-function hashCode(str) {
-    return str.split('').reduce((prevHash, currVal) =>
-        (((prevHash << 5) - prevHash) + currVal.charCodeAt(0)) | 0, 0).toString(36);
-}
+const ids = {};
 function generateId(pre) {
-    if (!pre) pre = ""; else pre += "-";
-    return pre + hashCode(new Error().stack);
+    if (ids[pre] != undefined) {
+        return pre + "-" + (ids[pre]++ , ids[pre]);
+    } else {
+        ids[pre] = 0;
+        return pre + "-0";
+    }
 };
 function elementInViewport(el, targets = { top: true, bottom: true, left: true, right: true }) {
     var top = el.offsetTop;
@@ -48,7 +49,7 @@ export function FadeIn(props) {
                 if (el != ref.dom) {
                     clearInterval(intervalId);
                 } else {
-                    if (elementInViewport(ref.dom, { top: true, left: true, right: true, bottom: true })) {
+                    if (elementInViewport(ref.dom, { top: true, left: false, right: false, bottom: false })) {
                         visible.value = "effect fade-in";
                         clearInterval(intervalId);
                     }

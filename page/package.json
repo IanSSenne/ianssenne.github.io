@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ians-fw": "^1.4.4"
+    "ians-fw": "^1.4.4",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^3.0.0"
   }
 }

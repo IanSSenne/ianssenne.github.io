@@ -8,12 +8,14 @@ fw.css`.app-root{
 }
 body{
     overflow-x:hidden;
-}`
-const app = <div className="app-root">
+}`;
+const app = (
+  <div className="app-root">
     <CssInject></CssInject>
     <Header></Header>
     <Content></Content>
-</div>;
+  </div>
+);
 export const element = app.element.bind(app);
 
 Object.defineProperty(window, "fw", { value: { fw, fwcomp, app } });

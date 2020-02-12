@@ -1,7 +1,7 @@
 import fw from "ians-fw";
 import theme from "./theme";
-// import FaceJpg from "./assets/IanSenne-face.jpg";
-const FaceJpg = { href: "about:blank" }
+import FaceJpg from "./assets/IanSenne-face.jpg";
+// const FaceJpg = { href: "about:blank" }
 import Effect from "./Effect";
 fw.css`.content-title-host{
     content: minmax(var(--scroll-y,50vw));
@@ -29,26 +29,32 @@ fw.css`.content-title-host{
 .pad-left-1em{padding-left:1em;}
 `;
 function AboutMe() {
-    return <div className="content-scroll-snap">
-        <section id="about-me">
+  return (
+    <div className="content-scroll-snap">
+      {Array(10)
+        .fill(0)
+        .map((_, i) => (
+          <section id={"about-me-" + i}>
             <Effect.FadeIn>
-                <div className="section-host">
-                    <div className="section-segment">
-                        <img src={"https://images.pexels.com/photos/3303614/pexels-photo-3303614.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"} className="about-me-img"></img>
-                    </div>
-                    <div className="section-segment pad-left-1em">
-                        <h1>about me</h1>
-                        Hello, my name is Ian Senne
-                    </div>
+              <div className="section-host">
+                <div className="section-segment">
+                  <img src={FaceJpg.href} className="about-me-img"></img>
                 </div>
+                <div className="section-segment pad-left-1em">
+                  <h1>about me</h1>
+                  <p>Hello, my name is Ian Senne</p>
+                </div>
+              </div>
             </Effect.FadeIn>
-        </section>
+          </section>
+        ))}
     </div>
+  );
 }
 export default function Content(props) {
-    return <div className="content-host">
-        <AboutMe>
-
-        </AboutMe>
+  return (
+    <div className="content-host">
+      <AboutMe></AboutMe>
     </div>
+  );
 }
